@@ -8,9 +8,9 @@ class Task:
     self.created_at = created_at
     self.updated_at = updated_at
 
-  @staticmethod
-  def from_primitives(data: dict[str, str]):
-    return Task(data.id, data.name, data.description, data.status, data.created_at, data.updated_at)
+  @classmethod
+  def from_primitives(cls, data):
+    return cls(data['id'], data['name'], data['description'], data['status'], date.fromisoformat(data['created_at']), date.fromisoformat(data['updated_at']))
 
   def create(id: str, name: str, description: str, status: str):
     return Task(id, name, description, status, date.today(), date.today())
