@@ -1,10 +1,12 @@
 from fastapi import APIRouter
-from src.contexts.hospital.Task.application.CreateTask import TaskCreator
-from src.contexts.hospital.Task.application.GetTask import TaskGetter
-from src.contexts.hospital.Task.application.SearchTask import TaskSearcher
-from src.contexts.hospital.Task.application.DeleteTask import TaskDeleter
-from src.contexts.hospital.Task.infrastructure.MongoTaskRepository import MongoTaskRepository
-from src.contexts.hospital.Task.infrastructure.HttpTaskModel import TaskModel
+from src.contexts.hospital import (
+  MongoTaskRepository,
+  TaskSearcher,
+  TaskGetter,
+  TaskCreator,
+  TaskDeleter,
+  TaskModel
+)
 from ..connections.database import database
 
 task_router = APIRouter()
